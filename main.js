@@ -132,24 +132,18 @@ const txt = `{
     }
 }`;
 let parse = JSON.parse(txt);
-console.log(parse["Paul"]["skills"]);
+console.log(parse);
 
 // // que 2
-// console.log("\n");
-for (let i = 0; i < Object.keys(parse).length; i++) {
-  for (let j = 0; j < Object.keys(parse[i]).length; j++) {
-    console.log(parse[i][j]);
+console.log("\n");
+
+function mostSkilled() {
+  let mostSkilled = "";
+  for (let elem in parse) {
+    if (parse[elem]["skills"].length > mostSkilled.length) {
+      mostSkilled = elem;
+    }
   }
+  return mostSkilled;
 }
-// for (let word in parse) {
-//   for (let words in word) {
-//     console.log(words);
-//   }
-//   //   let num = 0;
-//   //   let most = "";
-//   //   if (skills.length > num) {
-//   //     num = skills.length;
-//   //     most = word;
-//   //   }
-//   //   return most;
-// }
+console.log(mostSkilled());
